@@ -1,0 +1,103 @@
+﻿<Window x:Class="wpf_desktopclient.MemberWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpf_desktopclient"
+        mc:Ignorable="d"
+        Height="500" Width="450" 
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen"
+		xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
+		xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
+		fw:AcrylicWindow.Enabled="True" 
+		fw:AcrylicWindow.AcrylicWindowStyle="NoIcon" 
+		FontFamily="pack://application:,,,/Fonts/#Source Sans Pro" WindowStyle="None" AllowsTransparency="True"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}">
+    <Grid fw:PointerTracker.Enabled="True" Background="White" x:Name="gr_bookInsert" Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Ellipse Width="60" Height="60" Stroke="Black" StrokeThickness="0.2"/>
+            <materialDesign:PackIcon x:Name="icn_members" Kind="PersonBadgeOutline" Foreground="Black" Width="32" Height="32" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <StackPanel>
+                <TextBox Margin="5" 
+                         x:Name="txb_member_email" 
+                         Padding="5"
+                         FontSize="12" 
+                         materialDesign:HintAssist.Hint="E-mail" 
+                         materialDesign:HintAssist.Foreground="Black"
+                         BorderThickness="2" 
+                         BorderBrush="{DynamicResource MaterialDesignDivider}"  
+                         Style="{StaticResource MaterialDesignFilledTextBox}"
+                         materialDesign:TextFieldAssist.UnderlineBrush="#75a398"
+                         Width="300" 
+                         Background="Transparent"
+                         Text=""/>
+                <TextBox Margin="5" 
+                         x:Name="txb_member_firstname" 
+                         Padding="5"
+                         FontSize="12" 
+                         materialDesign:HintAssist.Hint="Vezetéknév" 
+                         materialDesign:HintAssist.Foreground="Black"
+                         BorderThickness="2" 
+                         BorderBrush="{DynamicResource MaterialDesignDivider}"  
+                         Style="{StaticResource MaterialDesignFilledTextBox}"
+                         materialDesign:TextFieldAssist.UnderlineBrush="#75a398"
+                         Width="300" 
+                         Background="Transparent"
+                         Text=""/>
+                <TextBox Margin="5" 
+                         x:Name="txb_member_lastname" 
+                         Padding="5"
+                         FontSize="12" 
+                         materialDesign:HintAssist.Hint="Keresztnév" 
+                         materialDesign:HintAssist.Foreground="Black"
+                         BorderThickness="2" 
+                         BorderBrush="{DynamicResource MaterialDesignDivider}"  
+                         Style="{StaticResource MaterialDesignFilledTextBox}"
+                         materialDesign:TextFieldAssist.UnderlineBrush="#75a398"
+                         Width="300" 
+                         Background="Transparent"
+                         Text=""/>
+                <TextBox Margin="0,10,0,0" 
+                         x:Name="txb_member_class" 
+                         Padding="5"
+                         FontSize="12" 
+                         materialDesign:HintAssist.Hint="Osztály" 
+                         materialDesign:HintAssist.Foreground="Black"
+                         BorderThickness="2" 
+                         BorderBrush="{DynamicResource MaterialDesignDivider}"  
+                         Style="{StaticResource MaterialDesignFilledTextBox}"
+                         materialDesign:TextFieldAssist.UnderlineBrush="#75a398"
+                         Width="300" 
+                         Background="Transparent"
+                         Text=""/>
+                <CheckBox x:Name="chb_member_role" HorizontalAlignment="Center" Margin="0,15,0,0" Content="Dolgozó/Tanár" Height="41" Width="150" >
+                    <CheckBox.Resources>
+                        <SolidColorBrush x:Key="MaterialDesignCheckBoxOff" Color="Black"/>
+                        <SolidColorBrush x:Key="PrimaryHueMidBrush" Color="DarkGray"/>
+                    </CheckBox.Resources>
+                </CheckBox>
+
+                <Button  Margin="0,20,0,0" 
+                         x:Name="btn_admin_member" 
+                         Style="{StaticResource CustomMaterialDesignFlatButton}" 
+                         Foreground="{StaticResource SecondaryColorBrush}"
+                         materialDesign:ShadowAssist.ShadowDepth="Depth0" 
+                         Height="35" Width="150" 
+                         FontSize="14" 
+                         FontWeight="Normal"
+                         Content="Új tag hozzáadása" 
+                         Click="btn_adminMember_Click">
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,263 @@
+﻿<Window x:Class="wpf_desktopclient.Windows.CheckOutWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:local="clr-namespace:wpf_desktopclient.Windows"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+		mc:Ignorable="d"
+		Height="550" Width="700"
+		ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+		xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
+		xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
+		fw:AcrylicWindow.Enabled="True" 
+		fw:AcrylicWindow.AcrylicWindowStyle="NoIcon" 
+		FontFamily="pack://application:,,,/Fonts/#Source Sans Pro" WindowStyle="None" AllowsTransparency="True" >
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+			<RowDefinition Height="0.5*"/>
+			<RowDefinition Height="2*"/>
+			<RowDefinition Height="3*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1*" />
+			<ColumnDefinition Width="5*"/>
+		</Grid.ColumnDefinitions>
+		<DockPanel Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Top"  >
+			<TextBlock VerticalAlignment="center">
+					<materialDesign:PackIcon Kind="Search" Width="20" Height="20" />
+			</TextBlock>
+			<TextBox  x:Name="txb_search_book" 
+                      Text="" 
+                      Width="170" Margin="10" 
+                      BorderThickness="0.5" 
+                      BorderBrush="Black" 
+                      materialDesign:HintAssist.Hint=" példány könyvtári kódja.." 
+                      KeyDown="txb_search_book_KeyDown" 
+                      materialDesign:TextFieldAssist.UnderlineBrush="#75a398"/>
+		</DockPanel>
+		<TextBlock Grid.ColumnSpan="4" Text="Könyv adatai " FontSize="14" FontWeight="ExtraLight" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,15,0" Foreground="gray">
+				<materialDesign:PackIcon Margin="0,0,0,-4" Kind="ArrowBottom" />
+		</TextBlock>
+		<Rectangle Grid.ColumnSpan="4" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="200" Height="0.5" Stroke="Gray"/>
+
+		<Image x:Name="img_checkout_book" Grid.Row="1" Grid.Column="0" Width="120" Height="160" Source="/Windows/Book-Placeholder.png" >
+		</Image>
+
+		<WrapPanel Margin="15,5,15,0" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" >
+			<TextBox Margin="10" 
+							 Padding="5"
+							 x:Name="txb_checkout_title" 
+							 FontSize="12" 
+							 materialDesign:HintAssist.Hint="Cím" 
+							 materialDesign:HintAssist.Foreground="Black" 
+							 BorderThickness="2" 
+							 BorderBrush="{DynamicResource MaterialDesignDivider}" 
+							 Style="{StaticResource MaterialDesignFilledTextBox}"
+							 materialDesign:TextFieldAssist.UnderlineBrush="#75a398"
+							 Width="240" 
+							 Background="Transparent"
+							 Text=""
+							 />
+			<TextBox Margin="10" 
+							 Padding="5"
+							 x:Name="txb_checkout_authors" 
+							 FontSize="12" 
+							 materialDesign:HintAssist.Hint="Szerző(k)" 
+							 materialDesign:HintAssist.Foreground="Black" 
+							 BorderThickness="2" 
+							 BorderBrush="{DynamicResource MaterialDesignDivider}" 
+							 Style="{StaticResource MaterialDesignFilledTextBox}"
+							 materialDesign:TextFieldAssist.UnderlineBrush="#75a398"
+							 Width="240" 
+							 Background="Transparent"
+							 Text=""
+							 />
+			<TextBox Margin="10" 
+							 Padding="5"
+							 x:Name="txb_checkout_publisher" 
+							 FontSize="12" 
+							 materialDesign:HintAssist.Hint="Kiadó" 
+							 materialDesign:HintAssist.Foreground="Black" 
+							 BorderThickness="2" 
+							 BorderBrush="{DynamicResource MaterialDesignDivider}" 
+							 Style="{StaticResource MaterialDesignFilledTextBox}"
+							 materialDesign:TextFieldAssist.UnderlineBrush="#75a398"
+							 Width="240" 
+							 Background="Transparent"
+							 Text=""
+							 />
+			<TextBox Margin="10" 
+							 Padding="5"
+							 x:Name="txb_checkout_publishYear" 
+							 FontSize="12" 
+							 materialDesign:HintAssist.Hint="Kiadási év" 
+							 materialDesign:HintAssist.Foreground="Black" 
+							 BorderThickness="2" 
+							 BorderBrush="{DynamicResource MaterialDesignDivider}" 
+							 Style="{StaticResource MaterialDesignFilledTextBox}"
+							 materialDesign:TextFieldAssist.UnderlineBrush="#75a398"
+							 Width="240" 
+							 Background="Transparent"
+							 Text=""
+							 />
+			<TextBox Margin="10" 
+							 Padding="5"
+							 x:Name="txb_checkout_category" 
+							 FontSize="12" 
+							 materialDesign:HintAssist.Hint="Kategória" 
+							 materialDesign:HintAssist.Foreground="Black" 
+							 BorderThickness="2" 
+							 BorderBrush="{DynamicResource MaterialDesignDivider}" 
+							 Style="{StaticResource MaterialDesignFilledTextBox}"
+							 materialDesign:TextFieldAssist.UnderlineBrush="#75a398"
+							 Width="240" 
+							 Background="Transparent"
+							 Text=""
+							 />
+			<TextBox Margin="10" 
+							 Padding="5"
+							 x:Name="txb_checkout_isbn" 
+							 FontSize="12" 
+							 materialDesign:HintAssist.Hint="ISBN" 
+							 materialDesign:HintAssist.Foreground="Black" 
+							 BorderThickness="2" 
+							 BorderBrush="{DynamicResource MaterialDesignDivider}" 
+							 Style="{StaticResource MaterialDesignFilledTextBox}"
+							 materialDesign:TextFieldAssist.UnderlineBrush="#75a398"
+							 Width="240" 
+							 Background="Transparent"
+							 Text=""/>
+		</WrapPanel>
+		<Grid Grid.Row="2"  Grid.ColumnSpan="4">
+			<TextBlock Text="Köcsönzés adatai " FontSize="14" FontWeight="ExtraLight" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,15,15,0" Foreground="gray">
+				<materialDesign:PackIcon Margin="0,0,0,-4" Kind="ArrowBottom" />
+			</TextBlock>
+			<Rectangle Grid.ColumnSpan="4" VerticalAlignment="Top" Margin="0,33,0,0" HorizontalAlignment="Right" Width="200" Height="0.5" Stroke="Gray"/>
+
+			<WrapPanel Margin="15,40,15,0" HorizontalAlignment="Center" >
+				<TextBox Margin="10" 
+							 Padding="5"
+							 x:Name="txb_checkout_checkOutCode" 
+							 FontSize="12" 
+							 materialDesign:HintAssist.Hint="Kölcsönzési azonosító" 
+							 materialDesign:HintAssist.Foreground="Black" 
+							 BorderThickness="2" 
+							 BorderBrush="{DynamicResource MaterialDesignDivider}" 
+							 Style="{StaticResource MaterialDesignFilledTextBox}"
+							 materialDesign:TextFieldAssist.UnderlineBrush="#75a398"
+							 Width="200" 
+							 Background="Transparent"
+							 Text=""
+							 />
+				<TextBox Margin="10" 
+							 Padding="5"
+							 x:Name="txb_checkout_readersCode" 
+							 FontSize="12" 
+							 materialDesign:HintAssist.Hint="Kölcsönző olvasójegy száma" 
+							 materialDesign:HintAssist.Foreground="Black" 
+							 BorderThickness="2" 
+							 BorderBrush="{DynamicResource MaterialDesignDivider}" 
+							 Style="{StaticResource MaterialDesignFilledTextBox}"
+							 materialDesign:TextFieldAssist.UnderlineBrush="#75a398"
+							 Width="200" 
+							 Background="Transparent"
+							 Text=""
+							 />
+				<TextBox Margin="10" 
+							 Padding="5"
+							 x:Name="txb_checkout_libraryCode" 
+							 FontSize="12" 
+							 materialDesign:HintAssist.Hint="Könyv könyvtári kódja" 
+							 materialDesign:HintAssist.Foreground="Black" 
+							 BorderThickness="2" 
+							 BorderBrush="{DynamicResource MaterialDesignDivider}" 
+							 Style="{StaticResource MaterialDesignFilledTextBox}"
+							 materialDesign:TextFieldAssist.UnderlineBrush="#75a398"
+							 Width="200" 
+							 Background="Transparent"
+							 Text=""/>
+
+				<DatePicker 
+					Margin="10" 
+					Padding="5"
+					x:Name="txb_checkout_checkOutDate" 
+					FontSize="12" 
+					materialDesign:HintAssist.Hint="Kikölcsönzés dátuma" 
+					materialDesign:HintAssist.Foreground="Black" 
+					BorderThickness="2" 
+					BorderBrush="{DynamicResource MaterialDesignDivider}" 
+					Style="{StaticResource MaterialDesignOutlinedDatePicker}"
+                    materialDesign:TextFieldAssist.UnderlineBrush="#75a398"
+					Width="200" 
+					Height="35"
+					Background="Transparent"/>
+                <DatePicker 
+					Margin="10" 
+					Padding="5"
+					x:Name="txb_checkout_checkInDate" 
+					FontSize="12" 
+					materialDesign:HintAssist.Hint="Kikölcsönzés határideje" 
+					materialDesign:HintAssist.Foreground="Black" 
+					BorderThickness="2" 
+					BorderBrush="{DynamicResource MaterialDesignDivider}" 
+					Style="{StaticResource MaterialDesignOutlinedDatePicker}"
+                    materialDesign:TextFieldAssist.UnderlineBrush="#75a398"
+					Width="200" 
+					Height="35"
+					Background="Transparent"/>
+                <DatePicker 
+					Margin="10" 
+					Padding="5"
+					x:Name="txb_checkout_returnDate" 
+					FontSize="12" 
+					materialDesign:HintAssist.Hint="Visszaérkezés dátuma" 
+					materialDesign:HintAssist.Foreground="Black" 
+					BorderThickness="2" 
+					BorderBrush="{DynamicResource MaterialDesignDivider}" 
+					Style="{StaticResource MaterialDesignOutlinedDatePicker}"
+                    materialDesign:TextFieldAssist.UnderlineBrush="#75a398"
+					Width="200" 
+					Height="35"
+					Background="Transparent"/>
+                <TextBlock Margin="160,20,0,0" FontWeight="Light" FontSize="13" Text="Könyv kölcsönzésének hosszabbítása ennyi nappal: " />
+                <ComboBox x:Name="cmb_checkout_additionalDays" Width="50" FontSize="12" materialDesign:TextFieldAssist.UnderlineBrush="#75a398" Style="{StaticResource MaterialDesignFilledComboBox}" Foreground="Black" Background="Transparent" Margin="10,0,0,0" >
+                    <ComboBoxItem>1</ComboBoxItem>
+                    <ComboBoxItem>2</ComboBoxItem>
+                    <ComboBoxItem>3</ComboBoxItem>
+                    <ComboBoxItem>5</ComboBoxItem>
+                    <ComboBoxItem>7</ComboBoxItem>
+                    <ComboBoxItem>10</ComboBoxItem>
+                </ComboBox>
+                <Button x:Name="btn_checkOut_additionalDays" 
+                        Margin="10,10,0,0" 
+                        Style="{StaticResource CustomMaterialDesignFlatButton}" 
+                        materialDesign:ShadowAssist.ShadowDepth="Depth3" 
+                        Height="35" Width="125" 
+                        FontSize="14" 
+                        FontWeight="Light" 
+                        Content="Meghosszabítás" 
+						Foreground="{StaticResource SecondaryColorBrush}" 
+                        Click="btn_checkOut_additionalDays_Click" ></Button>
+            </WrapPanel>
+            
+            <Button VerticalAlignment="Bottom" 
+                    Margin="0,5,0,20" 
+                    x:Name="btn_checkOut_returnBook" 
+                    Style="{StaticResource CustomMaterialDesignFlatButton}"
+                    materialDesign:ShadowAssist.ShadowDepth="Depth3" 
+                    Height="35" Width="200" 
+                    FontSize="14" 
+                    FontWeight="Light" 
+                    Content="Könyv visszavételezése" 
+                    Foreground="{StaticResource SecondaryColorBrush}" 
+                    Click="btn_checkOut_returnBook_Click" >
+                <Button.Resources>
+                    
+                </Button.Resources>
+            </Button>
+
+		</Grid>
+	</Grid>
+</Window>

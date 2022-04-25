@@ -1,0 +1,75 @@
+﻿<Window x:Class="wpf_desktopclient.Windows.BookDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpf_desktopclient.Windows"
+        mc:Ignorable="d"
+        Height="500" Width="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+		xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
+		xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
+		fw:AcrylicWindow.Enabled="True" 
+		fw:AcrylicWindow.AcrylicWindowStyle="NoIcon" 
+		FontFamily="pack://application:,,,/Fonts/#Source Sans Pro" WindowStyle="None" AllowsTransparency="True" Topmost="True" >
+    <!-- fw:AcrylicWindow.TintColor="LightGray" - ezt tettük be a light themehez, mert fehér volt? asszem -->
+    <Grid Background="White" Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="220" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel >
+                    <Rectangle Height="175" Width="120">
+                        <Rectangle.Fill>
+                            <ImageBrush x:Name="img_sbook_link" ImageSource="Book-Placeholder.png"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                </StackPanel>
+                <StackPanel Margin="10" Orientation="Vertical">
+                    <StackPanel>
+                        <TextBlock x:Name="txb_sbook_title" Foreground="Black" Text="Könyv címe ide" FontWeight="DemiBold" FontSize="18" />
+                        <TextBlock x:Name="txb_sbook_authors" Foreground="Black" Text="Szerző/Szerzők" FontSize="14" FontStyle="Italic" />
+                        <Rectangle Width="50" Height="0.4" Margin="5" Fill="Black" HorizontalAlignment="Left" ></Rectangle>
+
+                        <TextBlock x:Name="txb_sbook_publisher" Foreground="Black" Margin="0,5,0,0" Text="Kiadó Kiadó"/>
+                        <TextBlock x:Name="txb_sbook_publishyear" Foreground="Black" Margin="0,2,0,0" Text="2000."/>
+                        <TextBlock x:Name="txb_sbook_category" Foreground="Black" Margin="0,2,0,0" Text="Szépirodalom"/>
+                        <TextBlock x:Name="txb_sbook_pages" Foreground="Black" Margin="0,2,0,0" Text="201 oldal"/>
+                        <TextBlock x:Name="txb_sbook_isbn" Foreground="Black" Margin="0,2,0,0" Text="1234567891235"/>
+                        <TextBlock x:Name="txb_sbook_peldanyok" Foreground="Black" Margin="0,2,0,0" Text="Példányok" />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Right">
+                    <Button x:Name="btn_modify_book" HorizontalAlignment="Right" Foreground="Black" Background="{x:Null}" BorderBrush="{x:Null}" ToolTip="Könyv adatainak szerkesztése" Click="btn_modify_book_Click">
+                        <materialDesign:PackIcon Kind="Edit" Width="20" Height="20"/>
+                    </Button>
+                    <Button x:Name="btn_add_book" HorizontalAlignment="Right" Foreground="Black" Background="{x:Null}" BorderBrush="{x:Null}" ToolTip="Új példány felvétele" Click="btn_add_book_Click" >
+                        <materialDesign:PackIcon Kind="Add" Width="20" Height="20"/>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <TextBlock Text="Példányok"/>
+            <DataGrid x:Name="dgv_sbook" AutoGenerateColumns="False" CanUserAddRows="False"  VerticalScrollBarVisibility="Hidden">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*"/>
+                    <DataGridTextColumn Binding="{Binding LibraryCode}" Header="Könyv kódja" />
+                    <DataGridTextColumn Binding="{Binding Status}" Header="Státusz" />
+                    <DataGridTextColumn Binding="{Binding CheckInDate}" Header="Várhatóan elérhető"/>
+                    <DataGridTemplateColumn >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="btn_delete_book" Background="{x:Null}" BorderBrush="{x:Null}" ToolTip="Példány törlése" Click="btn_delete_book_Click" >
+                                    <materialDesign:PackIcon Kind="DeleteAlertOutline" Foreground="Black" />
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                     </DataGridTemplateColumn>
+                    <DataGridTextColumn Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</Window>

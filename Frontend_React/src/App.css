@@ -1,0 +1,191 @@
+.form-control:focus {
+  border-color: #929e9d;
+  box-shadow: 0 0 0 0.2rem rgba(120, 122, 121, 0.25);
+}
+
+.sidebarButton {
+  margin-left: 100px;
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.centerSortText {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.form-inline {
+  display: inline-block;
+}
+
+.search-box {
+  height: 40px;
+  border-style: hidden;
+  border-width: 0.1px;
+  border-radius: 30px;
+  position: relative;
+}
+
+.search-box input {
+  width: 340px;
+  padding-right: 35px;
+  min-height: 34px;
+  background: #faf7fd;
+  margin-left: 15px;
+  border: none;
+}
+
+#searchBox.search-input {
+  max-height: 34px;
+  box-shadow: none;
+  border: none;
+  outline: none;
+}
+
+.navText {
+  font-weight: medium;
+  display: inline-block;
+  margin-left: 5px;
+  color: #000000;
+}
+
+.navbar {
+  background-color: rgb(255, 255, 255);
+}
+
+.contact {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.homePage {
+  margin-top: 15px;
+}
+
+.home-dsng-top {
+  position: relative;
+  top: 330px;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: transparent;
+  color: white;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 18px;
+  padding: 12px 24px;
+  padding-top: 50px;
+  border: none;
+  cursor: pointer;
+}
+
+.home-btn-top {
+  background-color: transparent;
+  color: white;
+  font-size: 18px;
+  padding: 12px 24px;
+  left: 50%;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.home-btn-top:hover {
+  background-color: rgba(85, 85, 85, 0.7);
+}
+
+.home-dsng-bottom {
+  position: relative;
+  top: 330px;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: transparent;
+  color: white;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 18px;
+  text-align: right;
+  padding: 12px 24px;
+  padding-top: 50px;
+  border: none;
+  cursor: pointer;
+}
+
+.home-btn-bottom {
+  background-color: transparent;
+  color: white;
+  font-size: 18px;
+  padding: 12px 24px;
+  left: 50%;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.home-btn-bottom:hover {
+  background-color: rgba(85, 85, 85, 0.7);
+}
+
+.bookCard {
+  width: 250px;
+  height: 350px;
+
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+
+  background-color: black;
+  background-size: cover;
+  cursor: pointer;
+  font-family: 'Source Sans Pro', sans-serif;
+  -webkit-box-shadow: 0 0 5px #000;
+  box-shadow: 0 0 5px #000;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 2fr 2fr 1fr;
+
+  background: rgba(95, 93, 93, 0.9);
+  color: #FEF5DF;
+  opacity: 0;
+  transition: all 0.5s;
+
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.items {
+  padding-left: 20px;
+  letter-spacing: 3px;
+}
+
+.head {
+  font-size: 24px;
+  line-height: 40px;
+
+  transform: translateY(40px);
+  transition: all 0.7s;
+}
+
+.bookCard:hover .overlay {
+  opacity: 1;
+}
+
+.bookCard:hover .overlay .head {
+  transform: translateY(0px);
+}
+
+.bookCard:hover .overlay .cart {
+  transform: translateY(0px);
+  transition-delay: 0.6s;
+  opacity: 1;
+}

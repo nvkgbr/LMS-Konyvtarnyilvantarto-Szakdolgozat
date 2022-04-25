@@ -1,0 +1,16 @@
+.modal { 
+    background-color: rgba(0, 0, 0, 0.800) !important; 
+ }
+
+.btitle{
+    font-weight: bold;
+}
+.bdata{
+    
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 10px;
+}
+.bimg{
+    margin: 10px;
+}

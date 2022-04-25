@@ -1,0 +1,53 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:wpf_desktopclient"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="wpf_desktopclient.Books"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1170"
+      Title="Books">
+
+    <Grid Background="White" Width="1170">
+        <StackPanel>
+            <DockPanel HorizontalAlignment="Center" VerticalAlignment="Top">
+                <TextBlock VerticalAlignment="center">
+                    <materialDesign:PackIcon Kind="Search" Width="20" Height="20" />
+                </TextBlock>
+                <TextBox  x:Name="txb_search_book" 
+                          Text="" Width="300" Margin="10" 
+                          BorderThickness="0.5" BorderBrush="Black"
+                          CaretBrush="Gray"
+                          materialDesign:TextFieldAssist.UnderlineBrush="#75a398" TextChanged="txb_search_book_TextChanged"
+                            />
+            </DockPanel>
+            <DockPanel HorizontalAlignment="Right" Margin="10">
+                <Button x:Name="btn_add_book" Background="{x:Null}" BorderBrush="{x:Null}" Click="btn_add_book_Click">
+                    <materialDesign:PackIcon Kind="BooksAdd" Foreground="Black" Width="20" Height="20"/>
+                </Button>
+            </DockPanel>
+            <DataGrid x:Name="dgv_books" AutoGenerateColumns="False" Height="542" Width="1170" VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" IsReadOnly="True" CanUserAddRows="False" RowDetailsVisibilityMode="Collapsed">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Isbn}" Header="ISBN"/>
+                    <DataGridTextColumn Binding="{Binding Title}" Header="Cím"/>
+                    <DataGridTextColumn Binding="{Binding Authors}" Header="Szerző(k)" />
+                    <DataGridTextColumn Binding="{Binding Category}" Header="Kategória"/>
+                    <DataGridTextColumn Binding="{Binding Pages}" Header="Oldalak"/>
+                    <DataGridTextColumn Binding="{Binding PublishYear}" Header="Kiadás éve"/>
+                    <DataGridTextColumn Binding="{Binding Publisher}" Header="Kiadó"/>
+                    <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Click="btn_detailsBook_Click" Background="{x:Null}" BorderBrush="{x:Null}" >
+                                    <materialDesign:PackIcon Kind="MoreHoriz" Foreground="Black" />
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+               
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -1,0 +1,21 @@
+.floattoleft{
+    float:left;
+}
+.ptitle{
+    text-align: center;
+    font-weight: bold;
+}
+.ppage{
+    margin-top: 100px;
+}
+.cdata{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.pbutton{
+    position: relative;
+    font-weight: bold;
+}
+.persdata{
+    text-align: center;
+}

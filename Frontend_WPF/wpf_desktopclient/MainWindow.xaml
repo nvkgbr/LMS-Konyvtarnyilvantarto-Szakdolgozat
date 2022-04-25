@@ -1,0 +1,104 @@
+﻿<Window x:Class="wpf_desktopclient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpf_desktopclient"
+        mc:Ignorable="d"
+        xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:fw="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
+        fw:AcrylicWindow.Enabled="True" 
+        fw:AcrylicWindow.AcrylicWindowStyle="NoIcon" 
+        FontFamily="pack://application:,,,/Fonts/#Source Sans Pro" 
+        Height="700" Width="1400" WindowStyle="None" AllowsTransparency="True" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <!-- ikon levétele: acrylicwindowstyle=none-->
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="230" />
+            <ColumnDefinition Width="*" />
+            <!--<ColumnDefinition Width="3*"/>-->
+        </Grid.ColumnDefinitions>
+
+        <Grid fw:PointerTracker.Enabled="True" Background="#01ffffff" x:Name="gr_menu">
+            <StackPanel>
+                <StackPanel Margin="10">
+                    <Ellipse Margin="10" Height="50" Width="50">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="/avatartny.png"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <StackPanel>
+                        <TextBlock HorizontalAlignment="center" >Admin Admin</TextBlock>
+                        <Rectangle Width="80" Height="0.2" Fill="{DynamicResource SystemBaseHighColorBrush}" Margin="2" ></Rectangle>
+                    </StackPanel>
+                </StackPanel>
+                <ListViewItem x:Name="li_dashboard" PreviewMouseLeftButtonUp="li_dashboard_PreviewMouseLeftButtonUp">
+                <StackPanel Orientation="Horizontal" >
+                    <Button x:Name="btn_home" Background="{x:Null}" BorderBrush="{x:Null}">
+                        <materialDesign:PackIcon Kind="HomeOutline" Foreground="{DynamicResource SystemBaseMediumHighColorBrush }" ></materialDesign:PackIcon>
+                    </Button>
+                    <TextBlock Text="Főoldal" FontSize="12" VerticalAlignment="Center"></TextBlock>
+                </StackPanel>
+                </ListViewItem>
+                <ListViewItem>
+                    <StackPanel Orientation="Horizontal" >
+                    <Button x:Name="btn_notifications" Background="{x:Null}" BorderBrush="{x:Null}">
+                            <materialDesign:PackIcon Kind="NotificationsNone" Foreground="{DynamicResource SystemBaseMediumHighColorBrush }" ></materialDesign:PackIcon>
+                    </Button>
+                    <TextBlock Text="Értesítések" FontSize="12" VerticalAlignment="Center"></TextBlock>
+                </StackPanel>
+                </ListViewItem>
+                <TextBlock Text="Adminisztráció" Margin="15" FontWeight="DemiBold" FontSize="14"></TextBlock>
+                <ListViewItem x:Name="li_books" Padding="0" PreviewMouseLeftButtonUp="li_books_PreviewMouseLeftButtonUp" >
+                    <StackPanel Orientation="Horizontal">
+                        <Button  x:Name="btn_books" Background="{x:Null}" BorderBrush="{x:Null}">
+                            <materialDesign:PackIcon Kind="BookEditOutline" Foreground="{DynamicResource SystemBaseMediumHighColorBrush }" ></materialDesign:PackIcon>
+                        </Button>
+                        <TextBlock Text="Könyvek" FontSize="12" Margin="10" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Padding="0" PreviewMouseLeftButtonUp="li_checkouts_PreviewMouseLeftButtonUp">
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="btn_checkouts" Background="{x:Null}" BorderBrush="{x:Null}">
+                            <materialDesign:PackIcon Kind="LibraryShelves" Foreground="{DynamicResource SystemBaseMediumHighColorBrush }" ></materialDesign:PackIcon>
+                        </Button>
+                        <TextBlock Text="Kölcsönzés" FontSize="12" Margin="10" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Padding="0" PreviewMouseLeftButtonUp="li_members_PreviewMouseLeftButtonUp">
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="btn_members" Background="{x:Null}" BorderBrush="{x:Null}">
+                            <materialDesign:PackIcon Kind="PersonAddOutline" Foreground="{DynamicResource SystemBaseMediumHighColorBrush }" ></materialDesign:PackIcon>
+                        </Button>
+                        <TextBlock Text="Tagok" FontSize="12" Margin="10" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem Padding="0">
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="btn_events" Background="{x:Null}" BorderBrush="{x:Null}">
+                            
+                        </Button>
+                        <TextBlock Text="" FontSize="12" Margin="10" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem  Margin="0,110,0,0"  MouseLeftButtonUp="li_logout_MouseLeftButtonUp">
+                    <Border x:Name="li_logout" >
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="btn_logout" Background="{x:Null}" BorderBrush="{x:Null}">
+                                <materialDesign:PackIcon Kind="Logout" Foreground="{DynamicResource SystemBaseMediumHighColorBrush }" ></materialDesign:PackIcon>
+                        </Button>
+                        <TextBlock Text="Kilépés" FontSize="12" Margin="10" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                    </Border>
+                </ListViewItem>
+            </StackPanel>
+           
+
+
+        </Grid>
+
+        <Grid Grid.Column="1" Background="White" Grid.ColumnSpan="2">
+            <Frame x:Name="contentPage" NavigationUIVisibility="Hidden"/>
+        </Grid>
+    </Grid>
+</Window>

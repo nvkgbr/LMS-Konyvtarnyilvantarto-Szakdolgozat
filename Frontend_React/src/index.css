@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.input-group-addon.primary {
+  color: rgb(255, 255, 255);
+  background-color: rgb(50, 118, 177);
+  border-color: rgb(40, 94, 142);
+}
+
+.sort_buttons a
+{
+  display:block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height: 16px;
+}
+
+.bookTitle{
+  margin-right: 30px;
+  margin-left: 10px;
+}
+
+.publishYear{
+  margin-left: 10px;
+}
+
+.bookTitleDown{
+  margin-top: -30px;
+}
+
+.sortTitlep{
+  margin-top: 8px;
+}
+
+.login,.login:hover, .login:visited, .login:active, .login:link{
+  color:black;
+}
+

@@ -1,0 +1,19 @@
+.rightside_bg {
+    background-image: url("loginimg.jpg");
+    background-size: cover;
+    opacity: .95;
+    }
+.wholelogin{
+    margin-top: -5%;
+}
+@media (min-width: 768px) {
+    .login-form {
+    height: 100vh !important;
+    }
+}
+@media (min-width: 769px) {
+    .login-custom-2 {
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+    }
+}
